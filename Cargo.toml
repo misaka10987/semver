@@ -1,0 +1,13 @@
+[package]
+name = "semver"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+intervals-general = { git = "https://github.com/misaka10987/intervals-general", features = [
+    "serde",
+] }
+serde = { version = "1.0.203", features = ["derive"], optional = true }
+
+[features]
+default = ["serde"]
