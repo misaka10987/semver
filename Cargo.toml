@@ -2,12 +2,22 @@
 name = "semver"
 version = "0.1.0"
 edition = "2021"
+authors = ["misaka10987 <misaka10987@outlook.com>"]
+description = """
+A crate for handling semantic version numbers.
+"""
+documentation = "https://github.com/misaka10987/semver"
+homepage = "https://github.com/misaka10987/semver"
+repository = "https://github.com/misaka10987/semver"
+readme = "README.md"
+keywords = ["version"]
+license = "MIT"
 
 [dependencies]
-intervals-general = { git = "https://github.com/misaka10987/intervals-general", features = [
-    "serde",
-] }
-serde = { version = "1.0.203", features = ["derive"], optional = true }
+interva = "0.1.2"
+serde-dep = { version = "1.0.203", package = "serde", features = [
+    "derive",
+], optional = true }
 
 [features]
-default = ["serde"]
+serde = ["interva/serde", "serde-dep"]

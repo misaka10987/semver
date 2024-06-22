@@ -6,7 +6,7 @@ use std::{
     str::FromStr,
 };
 
-use intervals_general::Interval;
+use interva::Interval;
 
 #[derive(Clone, Copy)]
 pub struct SemVer(pub i16, pub i16, pub i16);
@@ -75,10 +75,4 @@ impl FromStr for SemVer {
     }
 }
 
-pub type ReqVer = intervals_general::Interval<SemVer>;
-
-impl SemVer {
-    pub fn within(&self, rng: ReqVer) -> bool {
-        rng.contains(&Interval::Singleton { at: *self })
-    }
-}
+pub type ReqVer = Interval<SemVer>;

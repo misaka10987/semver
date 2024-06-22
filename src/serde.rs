@@ -1,3 +1,5 @@
+extern crate serde_dep as serde;
+
 use crate::SemVer;
 use serde::{de::Visitor, Deserialize, Serialize};
 
@@ -53,10 +55,4 @@ impl<'de> Deserialize<'de> for SemVer {
     {
         deserializer.deserialize_str(SemVerVisitor)
     }
-}
-
-#[derive(Clone, Copy, Serialize, Deserialize)]
-pub struct ReqVer {
-    pub lo: Option<SemVer>,
-    pub hi: Option<SemVer>,
 }
